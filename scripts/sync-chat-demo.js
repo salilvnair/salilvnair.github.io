@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Builds convengine-chat-demo as a static export and syncs it into
- * public/demos/chat/, then injects the client-side API mock script tag.
+ * public/framework/convengine-chat/, then injects the client-side API mock script tag.
  *
  * Run from the salilvnair.github.io root:
  *   npm run sync-chat-demo
@@ -15,7 +15,7 @@ import { fileURLToPath } from 'url';
 const __dirname   = dirname(fileURLToPath(import.meta.url));
 const ROOT        = resolve(__dirname, '..');
 const CHAT_DEMO   = resolve(__dirname, '../../convengine-ui-builder/convengine-chat-demo');
-const DEST        = resolve(ROOT, 'public/demos/chat');
+const DEST        = resolve(ROOT, 'public/framework/convengine-chat');
 const NEXT_CONFIG = resolve(CHAT_DEMO, 'next.config.mjs');
 
 // ── 1. Patch next.config.mjs (add output + basePath) ────────────────────────
@@ -24,7 +24,7 @@ const originalConfig = readFileSync(NEXT_CONFIG, 'utf8');
 const patchedConfig = `/** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  basePath: '/demos/chat',
+  basePath: '/framework/convengine-chat',
   trailingSlash: false,
   transpilePackages: ['@salilvnair/convengine-chat'],
 };
@@ -43,14 +43,14 @@ try {
     throw new Error('Build output directory "out/" not found in ' + CHAT_DEMO);
   }
 
-  // ── 3. Copy output → public/demos/chat ────────────────────────────────────
-  console.log('📂  Copying out/ → public/demos/chat/...');
+  // ── 3. Copy output → public/framework/convengine-chat ────────────────────
+  console.log('📂  Copying out/ → public/framework/convengine-chat/...');
   cpSync(OUT, DEST, { recursive: true });
 
   // ── 4. Inject api-mock.js script tag ──────────────────────────────────────
   console.log('💉  Injecting api-mock.js script tag into HTML files...');
-  const MOCK_TAG   = '<script src="/demos/chat/api-mock.js"></script>';
-  const FIRST_CHUNK = '<script src="/demos/chat/_next/static/chunks/fd9d1056-';
+  const MOCK_TAG   = '<script src="/framework/convengine-chat/api-mock.js"></script>';
+  const FIRST_CHUNK = '<script src="/framework/convengine-chat/_next/static/chunks/fd9d1056-';
 
   for (const file of ['index.html', 'fullscreen.html']) {
     const filePath = resolve(DEST, file);
@@ -75,7 +75,7 @@ try {
     }
   }
 
-  console.log('\n✨  Done! Chat demo synced to public/demos/chat/');
+  console.log('\n✨  Done! Chat demo synced to public/framework/convengine-chat/');
 
 } finally {
   // ── 5. Restore next.config.mjs ────────────────────────────────────────────

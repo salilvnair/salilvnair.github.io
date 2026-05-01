@@ -45,7 +45,7 @@
       "description": "A fully custom Docusaurus v3 documentation site with dual versioning (v1 + v2), interactive React/MDX components, in-browser custom search indexing, and version-aware navigation. Not stock Docusaurus — a productized doc experience.",
       "category": "convengine",
       "github": "https://github.com/salilvnair/convengine-docs",
-      "demoUrl": "/demos/docs/",
+      "demoUrl": "/framework/convengine",
       "tech": ["Docusaurus", "React 19", "MDX", "Mantine 8", "React Flow", "Tailwind"],
       "highlights": [
         "Dual-version docs (v1 + v2) with custom switcher",
@@ -67,7 +67,7 @@
       "description": "A React npm library that integrates ConvEngine's full chat UI into any project with a single component. Supports panel mode, fullscreen mode, dark/light themes, and optional audit stream visualization for developers.",
       "category": "convengine",
       "github": "https://github.com/salilvnair/convengine-chat",
-      "demoUrl": "/demos/chat/",
+      "demoUrl": "/framework/convengine-chat",
       "tech": ["React", "Vite", "Tailwind CSS", "JavaScript"],
       "highlights": [
         "Drop-in <ConvEngineChat mode=\"panel\" /> component",

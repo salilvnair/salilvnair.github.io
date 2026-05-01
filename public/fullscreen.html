@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script>
+  // Redirect /fullscreen?... → /framework/convengine-chat/fullscreen?...
+  // The ConvEngine chat demo generates window.open('/fullscreen?...') which is an
+  // absolute path from the site root. On GitHub Pages the actual page lives under
+  // /framework/convengine-chat/, so we redirect transparently preserving all query params.
+  window.location.replace('/framework/convengine-chat/fullscreen' + window.location.search + window.location.hash);
+</script>
+</head>
+<body></body>
+</html>
