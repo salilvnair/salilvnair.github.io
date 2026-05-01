@@ -1,0 +1,119 @@
+{
+  "terminalTitle": "salil.agent · v1.0",
+  "terminalStatusLabel": "connected",
+  "statusBarPlayingLabel": "▶ playing...",
+  "statusBarDoneLabel": "■ complete",
+  "agentLabel": "Salil.Agent",
+  "userLabel": "User",
+  "messages": [
+    {
+      "id": 1,
+      "type": "system",
+      "text": "> Initializing salil.agent v1.0...",
+      "delay": 800
+    },
+    {
+      "id": 2,
+      "type": "system",
+      "text": "> Connecting to developer profile...",
+      "delay": 700
+    },
+    {
+      "id": 3,
+      "type": "system",
+      "text": "> Indexing 11 years of experience...",
+      "delay": 700
+    },
+    {
+      "id": 4,
+      "type": "system",
+      "text": "> Ready ✓  Connection established.",
+      "delay": 600
+    },
+    {
+      "id": 5,
+      "type": "agent",
+      "text": "Hello! I'm Salil's AI agent.\nI'll walk you through everything — his experience, tech stack, and the projects he's built. Ask away, or just watch.",
+      "delay": 900,
+      "typingDuration": 1800
+    },
+    {
+      "id": 6,
+      "type": "visitor",
+      "text": "Who is Salil V Nair?",
+      "delay": 1100
+    },
+    {
+      "id": 7,
+      "type": "agent",
+      "text": "**Salil V Nair** is a Senior Software Engineer with **11+ years** of experience building enterprise-grade software.\n\nHe started in December 2014 and has been writing production Java ever since — evolving from telecom systems all the way to building AI-powered conversational engines.",
+      "delay": 700,
+      "typingDuration": 2200
+    },
+    {
+      "id": 8,
+      "type": "visitor",
+      "text": "What does his experience look like?",
+      "delay": 1200
+    },
+    {
+      "id": 9,
+      "type": "agent",
+      "text": "**🗓 Dec 2014** — Joined the industry. Java, Telecom, SOAP/REST.\n**⚡ 2016–2019** — Deep Spring Boot, Hibernate, Oracle. Enterprise APIs.\n**🌐 2019–2022** — Frontend expansion: React, Angular, TypeScript.\n**🤖 2022–2026** — LLM integration, AI agent frameworks, open-source.\n\n**Today:** Still shipping. Still learning.",
+      "delay": 900,
+      "typingDuration": 2400
+    },
+    {
+      "id": 10,
+      "type": "visitor",
+      "text": "What's his core tech stack?",
+      "delay": 1200
+    },
+    {
+      "id": 11,
+      "type": "agent",
+      "text": "**Primary languages:** Java · TypeScript · JavaScript · Python\n**Frameworks:** Spring Boot · React · Angular · Hibernate\n**Databases:** Oracle · MongoDB\n**Networking:** RESTful · SOAP · Telecom Configs\n**Also fluent in:** HTML · CSS · XML · Lua Scripting · SwiftUI\n**OS:** macOS · Linux · Windows",
+      "delay": 700,
+      "typingDuration": 2000
+    },
+    {
+      "id": 12,
+      "type": "visitor",
+      "text": "Tell me about ConvEngine — his flagship project.",
+      "delay": 1200
+    },
+    {
+      "id": 13,
+      "type": "agent",
+      "text": "**ConvEngine** is a deterministic, database-driven conversational workflow engine — think enterprise chatbots with superpowers.\n\n🔧 **15-step DAG-resolved pipeline** per conversation turn\n🧠 **MCP tool orchestration** with 7+ executor adapters\n📊 **Full audit timeline** + SSE/STOMP real-time streaming\n⚡ **Rule engine** with 6 execution phases\n🔒 **Guardrails, state graphs, disambiguation** — all DB-configurable\n🌐 Multi-dialect SQL: Oracle · Postgres · SQLite\n\nCurrently at **v2.0.12** and actively evolving.",
+      "delay": 800,
+      "typingDuration": 2800
+    },
+    {
+      "id": 14,
+      "type": "visitor",
+      "text": "What else has he built?",
+      "delay": 1200
+    },
+    {
+      "id": 15,
+      "type": "agent",
+      "text": "He's shipped an entire open-source ecosystem:\n\n📚 **convengine-docs** — Docusaurus v3 site, dual versioning, custom MDX components\n💬 **convengine-chat** — React library: drop `<ConvEngineChat />` into any project\n📊 **excelprocessor** — Annotation-based Excel read/write/validate for Java (v3.1.3)\n🔌 **api-processor** — Facade→Handler→Delegate pattern for REST/SOAP integrations\n🔍 **json-validator** — Annotation-based JSON validation with conditional tasks\n📦 **jsonprocessor** — JSON toolkit: validator + path utils + REST utils\n🎭 **mockey** — Lightweight mock API server built on Express",
+      "delay": 800,
+      "typingDuration": 2800
+    },
+    {
+      "id": 16,
+      "type": "visitor",
+      "text": "How can I explore his work?",
+      "delay": 1200
+    },
+    {
+      "id": 17,
+      "type": "agent",
+      "text": "Everything is open source on **GitHub → github.com/salilvnair**\n\nAll libraries are published on **Maven Central** and actively maintained.\n\n↓ Scroll down to explore every project in detail — with descriptions, tech stacks, feature highlights, and direct GitHub links.",
+      "delay": 700,
+      "typingDuration": 1800
+    }
+  ]
+}

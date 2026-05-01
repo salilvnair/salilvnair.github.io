@@ -1,0 +1,83 @@
+{
+  "section": {
+    "badge": "Tech Stack",
+    "title": "Skills & Technologies",
+    "description": "11+ years of battle-tested expertise across the full stack."
+  },
+  "groups": [
+    {
+      "label": "Languages",
+      "icon": "Code2",
+      "color": "#6366f1",
+      "skills": [
+        { "name": "Java",       "level": 5 },
+        { "name": "TypeScript", "level": 5 },
+        { "name": "JavaScript", "level": 5 },
+        { "name": "Python",     "level": 4 },
+        { "name": "Lua",        "level": 2 },
+        { "name": "SwiftUI",    "level": 2 }
+      ]
+    },
+    {
+      "label": "Frameworks",
+      "icon": "Layers",
+      "color": "#8b5cf6",
+      "skills": [
+        { "name": "Spring Boot", "level": 5 },
+        { "name": "React",       "level": 5 },
+        { "name": "Angular",     "level": 5 },
+        { "name": "Hibernate",   "level": 5 },
+        { "name": "Spring",      "level": 5 }
+      ]
+    },
+    {
+      "label": "Databases",
+      "icon": "Database",
+      "color": "#22c55e",
+      "skills": [
+        { "name": "Oracle",     "level": 5 },
+        { "name": "PostgreSQL", "level": 4 },
+        { "name": "MongoDB",    "level": 4 },
+        { "name": "SQLite",     "level": 4 }
+      ]
+    },
+    {
+      "label": "Web & APIs",
+      "icon": "Globe",
+      "color": "#f59e0b",
+      "skills": [
+        { "name": "RESTful APIs", "level": 5 },
+        { "name": "SOAP",         "level": 5 },
+        { "name": "HTML",         "level": 5 },
+        { "name": "CSS",          "level": 5 },
+        { "name": "XML",          "level": 5 },
+        { "name": "SSE / STOMP",  "level": 4 }
+      ]
+    },
+    {
+      "label": "Tools & Process",
+      "icon": "Wrench",
+      "color": "#06b6d4",
+      "skills": [
+        { "name": "Maven",       "level": 5 },
+        { "name": "Git",         "level": 5 },
+        { "name": "Vite",        "level": 4 },
+        { "name": "Docusaurus",  "level": 4 },
+        { "name": "Tailwind CSS","level": 4 },
+        { "name": "Agile / Rally","level": 4 }
+      ]
+    },
+    {
+      "label": "Systems",
+      "icon": "Terminal",
+      "color": "#ec4899",
+      "skills": [
+        { "name": "macOS",           "level": 5 },
+        { "name": "Linux",           "level": 4 },
+        { "name": "Windows",         "level": 4 },
+        { "name": "LLM Integration", "level": 4 },
+        { "name": "Telecom Config",  "level": 4 }
+      ]
+    }
+  ]
+}

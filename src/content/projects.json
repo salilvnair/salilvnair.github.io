@@ -1,0 +1,197 @@
+{
+  "section": {
+    "badge": "Open Source",
+    "title": "Projects & Libraries",
+    "description": "From enterprise AI engines to zero-dependency Java libraries — everything built in the open.",
+    "footerNote": "All projects are open source and actively maintained.",
+    "footerCta": "View all on GitHub →",
+    "footerCtaUrl": "https://github.com/salilvnair"
+  },
+  "categories": [
+    { "id": "all",        "label": "All Projects" },
+    { "id": "convengine", "label": "ConvEngine Ecosystem" },
+    { "id": "java",       "label": "Java Libraries" },
+    { "id": "tools",      "label": "Tools" }
+  ],
+  "items": [
+    {
+      "id": "convengine",
+      "title": "ConvEngine",
+      "subtitle": "Deterministic Conversational Workflow Engine",
+      "description": "A production-grade, database-driven conversational AI framework for Java. Not just a chatbot library — a fully auditable state machine for enterprise conversations where every intent, state transition, and tool call is driven by database configuration.",
+      "category": "convengine",
+      "github": "https://github.com/salilvnair/convengine",
+      "demoUrl": null,
+      "tech": ["Java", "Spring Boot", "Oracle", "PostgreSQL", "SQLite", "LLM", "SSE", "STOMP"],
+      "highlights": [
+        "15-step DAG-resolved pipeline per conversation turn",
+        "MCP tool orchestration with 7 executor adapter types",
+        "Full audit timeline + real-time SSE/STOMP streaming",
+        "Rule engine with 6 execution phases (regex → LLM fallback)",
+        "Dialogue act classification, state graphs, guardrails",
+        "Multi-dialect SQL: Oracle · PostgreSQL · SQLite",
+        "v2.0.12 — actively maintained"
+      ],
+      "badge": "Flagship",
+      "version": "v2.0.12",
+      "language": "Java",
+      "color": "#6366f1",
+      "colorDim": "rgba(99,102,241,0.12)"
+    },
+    {
+      "id": "convengine-docs",
+      "title": "ConvEngine Docs",
+      "subtitle": "Documentation Site",
+      "description": "A fully custom Docusaurus v3 documentation site with dual versioning (v1 + v2), interactive React/MDX components, in-browser custom search indexing, and version-aware navigation. Not stock Docusaurus — a productized doc experience.",
+      "category": "convengine",
+      "github": "https://github.com/salilvnair/convengine-docs",
+      "demoUrl": "/demos/docs/",
+      "tech": ["Docusaurus", "React 19", "MDX", "Mantine 8", "React Flow", "Tailwind"],
+      "highlights": [
+        "Dual-version docs (v1 + v2) with custom switcher",
+        "Interactive MDX components: FlowStep, ChatBubble, EngineDebugFlow",
+        "Custom in-browser search indexing (no Algolia needed)",
+        "Version-aware navbar + localStorage preference persistence",
+        "Custom command palette and global term lookup"
+      ],
+      "badge": "Docs",
+      "version": null,
+      "language": "TypeScript",
+      "color": "#8b5cf6",
+      "colorDim": "rgba(139,92,246,0.12)"
+    },
+    {
+      "id": "convengine-chat",
+      "title": "ConvEngine Chat",
+      "subtitle": "React Component Library",
+      "description": "A React npm library that integrates ConvEngine's full chat UI into any project with a single component. Supports panel mode, fullscreen mode, dark/light themes, and optional audit stream visualization for developers.",
+      "category": "convengine",
+      "github": "https://github.com/salilvnair/convengine-chat",
+      "demoUrl": "/demos/chat/",
+      "tech": ["React", "Vite", "Tailwind CSS", "JavaScript"],
+      "highlights": [
+        "Drop-in <ConvEngineChat mode=\"panel\" /> component",
+        "Panel + Fullscreen display modes",
+        "Dark/Light theme toggle built-in",
+        "Optional audit stream visualization (showAudit)",
+        "Publishable as npm package (ES + UMD builds)"
+      ],
+      "badge": "Library",
+      "version": null,
+      "language": "JavaScript",
+      "color": "#a855f7",
+      "colorDim": "rgba(168,85,247,0.12)"
+    },
+    {
+      "id": "excelprocessor",
+      "title": "Excel Processor",
+      "subtitle": "Annotation-Based Excel Processing for Java",
+      "description": "A Java library that brings annotation-driven simplicity to Excel operations. Annotate your POJOs with @Sheet and @Cell, get full read/write/validate pipelines out of the box — no boilerplate Apache POI plumbing.",
+      "category": "java",
+      "github": "https://github.com/salilvnair/excelprocessor",
+      "demoUrl": null,
+      "tech": ["Java", "Maven", "Spring"],
+      "highlights": [
+        "Annotation-based @Sheet and @Cell POJO mapping",
+        "Built-in validations: required, numeric, email, minItems, maxItems",
+        "Conditional and custom validator tasks",
+        "AllowedValues annotation for set-based validation",
+        "Works with any Java/Spring framework",
+        "v3.1.3 — published on Maven Central"
+      ],
+      "badge": "Maven Central",
+      "version": "v3.1.3",
+      "language": "Java",
+      "color": "#22c55e",
+      "colorDim": "rgba(34,197,94,0.12)"
+    },
+    {
+      "id": "api-processor",
+      "title": "API Processor",
+      "subtitle": "Standardized REST & SOAP Integration Pattern",
+      "description": "A lightweight Java library that enforces a clean Facade → Handler → Delegate architecture for all REST and SOAP integrations. Gives teams a single, testable, retry-capable pattern instead of one-off HTTP client implementations.",
+      "category": "java",
+      "github": "https://github.com/salilvnair/api-processor",
+      "demoUrl": null,
+      "tech": ["Java", "Spring", "REST", "SOAP", "Maven"],
+      "highlights": [
+        "Facade → Handler → Delegate layered architecture",
+        "Built-in retry with configurable attempts + backoff",
+        "Auth injection: API_KEY, static BEARER",
+        "Response mapping: RAW_JSON, JSON_PATH, FIELD_TEMPLATE, TEXT",
+        "Circuit breaker window support",
+        "Also used natively inside ConvEngine MCP HTTP tools"
+      ],
+      "badge": "Maven Central",
+      "version": null,
+      "language": "Java",
+      "color": "#f59e0b",
+      "colorDim": "rgba(245,158,11,0.12)"
+    },
+    {
+      "id": "jsonprocessor",
+      "title": "JSON Processor",
+      "subtitle": "All-in-One JSON Toolkit for Java",
+      "description": "A combined JSON toolkit for Java that bundles JSON validation, JSON path utilities, and REST API utilities into a single Maven dependency — no more juggling multiple JSON processing libraries.",
+      "category": "java",
+      "github": "https://github.com/salilvnair/jsonprocessor",
+      "demoUrl": null,
+      "tech": ["Java", "Maven"],
+      "highlights": [
+        "JSON Validator + JSON Path Util + REST API Utils in one",
+        "Single Maven Central dependency",
+        "v2.0.0 — stable and maintained"
+      ],
+      "badge": "Maven Central",
+      "version": "v2.0.0",
+      "language": "Java",
+      "color": "#06b6d4",
+      "colorDim": "rgba(6,182,212,0.12)"
+    },
+    {
+      "id": "json-validator",
+      "title": "JSON Validator",
+      "subtitle": "Annotation-Based JSON Validation for Java",
+      "description": "A Java library for validating JSON payloads using annotations. Define validation rules on your model fields with @JsonKeyValidation, get rich error reports with exact JSON path locations back — no XML config, no external schema files.",
+      "category": "java",
+      "github": "https://github.com/salilvnair/json-validator",
+      "demoUrl": null,
+      "tech": ["Java", "Maven"],
+      "highlights": [
+        "@JsonKeyValidation annotation-driven field rules",
+        "Built-in validators: required, email, numeric, minItems, maxItems",
+        "Conditional validators + custom task support",
+        "Error report includes full JSON path to the issue",
+        "Framework-agnostic — works with any Java project"
+      ],
+      "badge": "Maven Central",
+      "version": null,
+      "language": "Java",
+      "color": "#ec4899",
+      "colorDim": "rgba(236,72,153,0.12)"
+    },
+    {
+      "id": "mockey",
+      "title": "Mockey",
+      "subtitle": "Lightweight Code-First Mock API Server",
+      "description": "A mock API server built on Express that routes requests through resolver functions to response files. Supports GET/POST, static/dynamic JSON responses, global + per-response delays, auth simulation, and demo order/loan workflow APIs.",
+      "category": "tools",
+      "github": "https://github.com/salilvnair/mockey",
+      "demoUrl": null,
+      "tech": ["Node.js", "Express", "JavaScript"],
+      "highlights": [
+        "Code-first resolver pattern — no YAML/JSON-only configs",
+        "Multi-resolver chains per route (first match wins)",
+        "Static JSON, dynamic responses, file serve, and redirects",
+        "Global delay + per-response delay override",
+        "Auth/JWKS simulation endpoints built in",
+        "Ready demo APIs: order + loan workflows"
+      ],
+      "badge": "npm",
+      "version": null,
+      "language": "JavaScript",
+      "color": "#f97316",
+      "colorDim": "rgba(249,115,22,0.12)"
+    }
+  ]
+}

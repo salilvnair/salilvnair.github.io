@@ -1,0 +1,22 @@
+{
+  "brand": {
+    "name": "salilvnair",
+    "tld": ".com",
+    "homeSectionId": "home"
+  },
+  "links": [
+    { "label": "About",    "sectionId": "home" },
+    { "label": "Projects", "sectionId": "projects" },
+    { "label": "Skills",   "sectionId": "skills" }
+  ],
+  "cta": {
+    "label": "GitHub",
+    "url": "https://github.com/salilvnair"
+  },
+  "footer": {
+    "builtWith": "Built with React · Vite · Tailwind CSS",
+    "openSourceLabel": "Open source",
+    "githubDisplay": "github.com/salilvnair",
+    "githubUrl": "https://github.com/salilvnair"
+  }
+}

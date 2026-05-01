@@ -1,0 +1,8 @@
+{
+  "items": [
+    { "label": "Years Experience",     "value": "11+", "color": "#6366f1" },
+    { "label": "Open Source Projects", "value": "8+",  "color": "#22c55e" },
+    { "label": "Primary Languages",    "value": "5+",  "color": "#f59e0b" },
+    { "label": "Frameworks Mastered",  "value": "6+",  "color": "#a855f7" }
+  ]
+}
