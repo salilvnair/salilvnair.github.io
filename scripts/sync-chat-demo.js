@@ -16,7 +16,7 @@ const __dirname   = dirname(fileURLToPath(import.meta.url));
 const ROOT        = resolve(__dirname, '..');
 const CHAT_DEMO   = resolve(__dirname, '../../convengine-ui-builder/convengine-chat-demo');
 const DEST        = resolve(ROOT, 'public/framework/convengine-chat');
-const NEXT_CONFIG = resolve(CHAT_DEMO, 'next.config.mjs');
+const NEXT_CONFIG = resolve(CHAT_DEMO, 'local_only/next.config.mjs');
 
 // ── 1. Patch next.config.mjs (add output + basePath) ────────────────────────
 console.log('📝  Patching next.config.mjs for static export...');
