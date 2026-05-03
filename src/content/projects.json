@@ -11,7 +11,8 @@
     { "id": "all",        "label": "All Projects" },
     { "id": "convengine", "label": "ConvEngine Ecosystem" },
     { "id": "java",       "label": "Java Libraries" },
-    { "id": "tools",      "label": "Tools" }
+    { "id": "tools",      "label": "Tools" },
+    { "id": "vscode",     "label": "VS Code Extension" }
   ],
   "items": [
     {
@@ -169,6 +170,29 @@
       "language": "Java",
       "color": "#ec4899",
       "colorDim": "rgba(236,72,153,0.12)"
+    },
+    {
+      "id": "ck8t",
+      "title": "CK8T Agent Builder Studio",
+      "subtitle": "Visual Agentic Workflow Builder",
+      "description": "A node-based visual canvas for building, running, and deploying agentic workflows. Design automation graphs with 30+ block types — AI agents, control flow, DB, API, MCP tools — then execute them in the browser, inside VS Code, or on a standalone Fastify server.",
+      "category": ["tools", "vscode"],
+      "github": "https://github.com/ck8t/ck8t",
+      "demoUrl": "/framework/ck8t",
+      "tech": ["React", "ReactFlow", "Vite", "TypeScript", "Fastify", "VS Code Extension"],
+      "highlights": [
+        "Drag-and-drop canvas with 30+ block types (Agent, MCP, DB, API, control-flow)",
+        "Three runtime targets: browser app, VS Code extension, standalone Node server",
+        "Provider-agnostic: OpenAI, Anthropic, Gemini, Ollama, LM Studio, custom",
+        "VS Code extension with webview panel + Copilot chat participant",
+        "Skill editor: write JS functions as reusable agent tools",
+        "Run trace, debug panel, problems view, and live output per node"
+      ],
+      "badge": "Studio",
+      "version": null,
+      "language": "TypeScript",
+      "color": "#7c3aed",
+      "colorDim": "rgba(124,58,237,0.12)"
     },
     {
       "id": "mockey",

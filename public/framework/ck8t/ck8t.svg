@@ -1,0 +1,48 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="cyan" x1="2" y1="2" x2="10" y2="10">
+      <stop offset="0%" stop-color="#00E5FF"/>
+      <stop offset="100%" stop-color="#12CFF3"/>
+    </linearGradient>
+
+    <linearGradient id="purple" x1="14" y1="2" x2="22" y2="10">
+      <stop offset="0%" stop-color="#8B5CF6"/>
+      <stop offset="100%" stop-color="#A855F7"/>
+    </linearGradient>
+
+    <linearGradient id="green" x1="8" y1="14" x2="16" y2="22">
+      <stop offset="0%" stop-color="#22C55E"/>
+      <stop offset="100%" stop-color="#16A34A"/>
+    </linearGradient>
+  </defs>
+
+  <!-- smooth connected edges behind nodes -->
+  <path d="M5.75 9.5 C5.75 12.1 8.1 13.55 10.35 14.5"
+        stroke="url(#cyan)" stroke-width="2" stroke-linecap="round" fill="none"/>
+
+  <path d="M18.25 9.5 C18.25 12.1 15.9 13.55 13.65 14.5"
+        stroke="url(#purple)" stroke-width="2" stroke-linecap="round" fill="none"/>
+
+  <!-- same-size boxes -->
+  <rect x="2" y="2" width="7.5" height="7.5" rx="2.2"
+        stroke="url(#cyan)" stroke-width="2"/>
+
+  <rect x="14.5" y="2" width="7.5" height="7.5" rx="2.2"
+        stroke="url(#purple)" stroke-width="2"/>
+
+  <rect x="8.25" y="14.5" width="7.5" height="7.5" rx="2.2"
+        stroke="url(#green)" stroke-width="2"/>
+
+  <!-- robot face inside bottom box -->
+  <path d="M10.15 17.25a1 1 0 0 1 1-1h1.7a1 1 0 0 1 1 1v1.25a1 1 0 0 1-1 1h-1.7a1 1 0 0 1-1-1v-1.25z"
+        stroke="#22C55E" stroke-width="0.75" stroke-linecap="round"/>
+
+  <path d="M12 15.4v0.85"
+        stroke="#22C55E" stroke-width="0.75" stroke-linecap="round"/>
+
+  <circle cx="11.25" cy="17.85" r="0.35" fill="#22C55E"/>
+  <circle cx="12.75" cy="17.85" r="0.35" fill="#22C55E"/>
+
+  <path d="M10.95 19.9v0.65M13.05 19.9v0.65M10.95 20.55h2.1"
+        stroke="#22C55E" stroke-width="0.65" stroke-linecap="round"/>
+</svg>

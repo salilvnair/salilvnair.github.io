@@ -6,9 +6,15 @@ import ProjectCard from './ProjectCard';
 
 const { section, categories, items } = projectsData;
 
+/** Category field can be a string or an array — normalise to array for matching. */
+function inCategory(project, catId) {
+  const cats = Array.isArray(project.category) ? project.category : [project.category];
+  return cats.includes(catId);
+}
+
 const categoriesWithCount = categories.map((cat) => ({
   ...cat,
-  count: cat.id === 'all' ? items.length : items.filter((p) => p.category === cat.id).length,
+  count: cat.id === 'all' ? items.length : items.filter((p) => inCategory(p, cat.id)).length,
 }));
 
 export default function ProjectsSection() {
@@ -16,7 +22,7 @@ export default function ProjectsSection() {
 
   const filtered = activeCategory === 'all'
     ? items
-    : items.filter((p) => p.category === activeCategory);
+    : items.filter((p) => inCategory(p, activeCategory));
 
   return (
     <section id="projects" className="py-24 px-6">
