@@ -17,7 +17,7 @@ function AgentIcon() {
   );
 }
 
-export default function TypingIndicator() {
+export default function TypingIndicator({ progressText }) {
   return (
     <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 8 }} transition={{ duration: 0.2 }}
       className="flex items-end gap-3">
@@ -36,6 +36,11 @@ export default function TypingIndicator() {
                 style={{ animationDelay: `${i * 0.16}s` }} />
             ))}
           </div>
+          {progressText && (
+            <p className="font-mono text-[10px] dark:text-indigo-400/60 text-indigo-500/70 mt-1.5 pl-0.5 animate-pulse">
+              {progressText}
+            </p>
+          )}
         </div>
       </div>
     </motion.div>

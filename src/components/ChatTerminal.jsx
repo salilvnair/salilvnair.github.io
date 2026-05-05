@@ -6,9 +6,19 @@ import TypingIndicator from './TypingIndicator';
 
 const { messages, terminalTitle, terminalStatusLabel, statusBarPlayingLabel, statusBarDoneLabel } = chatData;
 
+// Fake SSE-style progress steps shown during agent typing
+const PROGRESS_STEPS = [
+  '🔍 Parsing intent…',
+  '🧠 Matching context…',
+  '⚙️  Running step…',
+  '✍️  Generating response…',
+  '📦 Packaging reply…',
+];
+
 export default function ChatTerminal() {
   const [visibleMessages, setVisibleMessages] = useState([]);
   const [isTyping, setIsTyping] = useState(false);
+  const [progressText, setProgressText] = useState('');
   const [isDone, setIsDone] = useState(false);
   const chatAreaRef = useRef(null);
   const timersRef = useRef([]);
@@ -24,9 +34,20 @@ export default function ChatTerminal() {
         const typingDuration = message.typingDuration || 1500;
         const messageDelay = cumulativeDelay + typingDuration;
 
-        const t1 = setTimeout(() => setIsTyping(true), typingDelay);
+        const t1 = setTimeout(() => {
+          setIsTyping(true);
+          setProgressText('');
+          // Fire progress steps during typing
+          const stepInterval = Math.floor(typingDuration / (PROGRESS_STEPS.length + 1));
+          PROGRESS_STEPS.forEach((step, si) => {
+            const st = setTimeout(() => setProgressText(step), (si + 1) * stepInterval);
+            timersRef.current.push(st);
+          });
+        }, typingDelay);
+
         const t2 = setTimeout(() => {
           setIsTyping(false);
+          setProgressText('');
           setVisibleMessages((prev) => [...prev, message]);
           if (index === messages.length - 1) setIsDone(true);
         }, messageDelay);
@@ -65,7 +86,11 @@ export default function ChatTerminal() {
             <span className="w-3 h-3 rounded-full bg-[#28c840] cursor-default" />
           </div>
           <span className="font-mono text-xs text-th-faint tracking-wider">{terminalTitle}</span>
-          <div className="flex items-center gap-1.5">
+          <div className="flex items-center gap-2">
+            {/* SSE transport badge */}
+            <span className="font-mono text-[9px] font-bold uppercase tracking-widest px-1.5 py-0.5 rounded-full bg-emerald-500/10 dark:bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+              SSE
+            </span>
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
             <span className="font-mono text-[10px] dark:text-emerald-400/80 text-emerald-600">{terminalStatusLabel}</span>
           </div>
@@ -80,7 +105,7 @@ export default function ChatTerminal() {
           <AnimatePresence>
             {isTyping && (
               <motion.div key="typing" initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 6 }} transition={{ duration: 0.2 }}>
-                <TypingIndicator />
+                <TypingIndicator progressText={progressText} />
               </motion.div>
             )}
           </AnimatePresence>
