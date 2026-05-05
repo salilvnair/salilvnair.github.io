@@ -2,6 +2,17 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 export default defineConfig({
+  server: {
+    proxy: {
+      // Forward API calls from the static demo to the Next.js dev server.
+      // The chat widget calls /api/... relative to the page origin; Vite
+      // can't handle POST requests so we proxy them to localhost:3000.
+      '/api': {
+        target: 'http://localhost:3000',
+        changeOrigin: true,
+      },
+    },
+  },
   plugins: [
     react(),
     {
