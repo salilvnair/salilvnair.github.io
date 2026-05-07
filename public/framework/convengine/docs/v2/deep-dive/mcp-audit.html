@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.9.2">
 <title data-rh="true">MCP | ConvEngine</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://salilvnair.com/framework/convengine/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://salilvnair.com/framework/convengine/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://salilvnair.com/framework/convengine/docs/v2/deep-dive/mcp-audit"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-v2-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-v2-current"><meta data-rh="true" property="og:title" content="MCP | ConvEngine"><meta data-rh="true" name="description" content="Two tool paths"><meta data-rh="true" property="og:description" content="Two tool paths"><link data-rh="true" rel="icon" href="/framework/convengine/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://salilvnair.com/framework/convengine/docs/v2/deep-dive/mcp-audit"><link data-rh="true" rel="alternate" href="https://salilvnair.com/framework/convengine/docs/v2/deep-dive/mcp-audit" hreflang="en"><link data-rh="true" rel="alternate" href="https://salilvnair.com/framework/convengine/docs/v2/deep-dive/mcp-audit" hreflang="x-default"><link rel="stylesheet" href="/framework/convengine/assets/css/styles.8f581a2b.css">
-<script src="/framework/convengine/assets/js/runtime~main.4199060d.js" defer="defer"></script>
-<script src="/framework/convengine/assets/js/main.08499f86.js" defer="defer"></script>
+<script src="/framework/convengine/assets/js/runtime~main.004467c5.js" defer="defer"></script>
+<script src="/framework/convengine/assets/js/main.6627e98a.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg style="display: none;"><defs>
@@ -24,41 +24,41 @@
 <li class="">request-driven via <code>tool_request</code></li>
 <li class="">executes one tool</li>
 <li class="">runs <code>POST_TOOL_EXECUTION</code> rules</li>
-<li class="">writes <code>context.mcp.toolExecution.*</code></li>
+<li class="">writes <code>context.agent.toolExecution.*</code></li>
 </ul>
 <ol start="2">
-<li class=""><code>McpToolStep</code> (planner loop mode)</li>
+<li class=""><code>AgentToolStep</code> (planner loop mode)</li>
 </ol>
 <ul>
 <li class="">planner loop (<code>CALL_TOOL</code>/<code>ANSWER</code>)</li>
-<li class="">writes <code>context.mcp.observations[]</code> and <code>context.mcp.finalAnswer</code></li>
+<li class="">writes <code>context.agent.observations[]</code> and <code>context.agent.finalAnswer</code></li>
 <li class="">runs <code>POST_AGENT_MCP</code> rules</li>
-<li class="">writes <code>context.mcp.lifecycle.*</code></li>
+<li class="">writes <code>context.agent.lifecycle.*</code></li>
 </ul>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="guardrail-blocked-branch">Guardrail blocked branch<a href="#guardrail-blocked-branch" class="hash-link" aria-label="Direct link to Guardrail blocked branch" title="Direct link to Guardrail blocked branch" translate="no">​</a></h2>
 <p>If planner proposes a blocked next tool:</p>
 <ul>
 <li class=""><code>mcp_status=GUARDRAIL_BLOCKED_NEXT_TOOL</code></li>
-<li class="">fallback final text is written to <code>context.mcp.finalAnswer</code></li>
+<li class="">fallback final text is written to <code>context.agent.finalAnswer</code></li>
 <li class=""><code>POST_AGENT_MCP</code> rules still run</li>
 <li class="">response is still finalized by <code>ce_response</code> resolution</li>
 </ul>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="rule-ready-mcp-metadata">Rule-ready MCP metadata<a href="#rule-ready-mcp-metadata" class="hash-link" aria-label="Direct link to Rule-ready MCP metadata" title="Direct link to Rule-ready MCP metadata" translate="no">​</a></h2>
-<p><code>context.mcp.lifecycle</code> includes:</p>
+<p><code>context.agent.lifecycle</code> includes:</p>
 <ul>
 <li class=""><code>phase</code>, <code>status</code>, <code>outcome</code>, <code>finished</code></li>
 <li class=""><code>blocked</code>, <code>error</code>, <code>errorMessage</code></li>
 <li class=""><code>lastAction</code>, <code>lastToolCode</code>, <code>lastToolGroup</code>, <code>lastToolArgs</code></li>
 <li class=""><code>toolExecuted</code></li>
 </ul>
-<p><code>context.mcp.toolExecution</code> includes:</p>
+<p><code>context.agent.toolExecution</code> includes:</p>
 <ul>
 <li class=""><code>phase</code>, <code>status</code>, <code>outcome</code>, <code>finished</code></li>
 <li class=""><code>error</code>, <code>scopeMismatch</code>, <code>toolExecuted</code></li>
 <li class=""><code>toolCode</code>, <code>toolGroup</code>, <code>meta</code>, <code>result</code>, <code>errorMessage</code></li>
 </ul>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="json_path-examples-for-ce_rulematch_pattern">JSON_PATH examples for <code>ce_rule.match_pattern</code><a href="#json_path-examples-for-ce_rulematch_pattern" class="hash-link" aria-label="Direct link to json_path-examples-for-ce_rulematch_pattern" title="Direct link to json_path-examples-for-ce_rulematch_pattern" translate="no">​</a></h2>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-background-color:hsl(220, 13%, 18%);--prism-color:hsl(220, 14%, 71%)"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="background-color:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3)"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3)"><span class="token plain">$[?(@.context.mcp.lifecycle.finished == true &amp;&amp; @.context.mcp.lifecycle.outcome == &#x27;BLOCKED&#x27;)]</span><br></span><span class="token-line" style="color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3)"><span class="token plain">$[?(@.context.mcp.lifecycle.error == true)]</span><br></span><span class="token-line" style="color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3)"><span class="token plain">$[?(@.context.mcp.toolExecution.phase == &#x27;POST_TOOL_EXECUTION&#x27; &amp;&amp; @.context.mcp.toolExecution.status == &#x27;SUCCESS&#x27;)]</span><br></span><span class="token-line" style="color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3)"><span class="token plain">$[?(@.context.mcp.toolExecution.scopeMismatch == true)]</span><br></span></code></pre></div></div>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-background-color:hsl(220, 13%, 18%);--prism-color:hsl(220, 14%, 71%)"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="background-color:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3)"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3)"><span class="token plain">$[?(@.context.agent.lifecycle.finished == true &amp;&amp; @.context.agent.lifecycle.outcome == &#x27;BLOCKED&#x27;)]</span><br></span><span class="token-line" style="color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3)"><span class="token plain">$[?(@.context.agent.lifecycle.error == true)]</span><br></span><span class="token-line" style="color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3)"><span class="token plain">$[?(@.context.agent.toolExecution.phase == &#x27;POST_TOOL_EXECUTION&#x27; &amp;&amp; @.context.agent.toolExecution.status == &#x27;SUCCESS&#x27;)]</span><br></span><span class="token-line" style="color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3)"><span class="token plain">$[?(@.context.agent.toolExecution.scopeMismatch == true)]</span><br></span></code></pre></div></div>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="audit-stages-to-watch">Audit stages to watch<a href="#audit-stages-to-watch" class="hash-link" aria-label="Direct link to Audit stages to watch" title="Direct link to Audit stages to watch" translate="no">​</a></h2>
 <p>Tool orchestration path:</p>
 <ul>
@@ -77,13 +77,13 @@
 </ul>
 <p>Rule phases around these paths:</p>
 <ul>
-<li class=""><code>RULE_MATCH (McpToolStep)</code> / <code>RULE_NO_MATCH (McpToolStep)</code></li>
+<li class=""><code>RULE_MATCH (AgentToolStep)</code> / <code>RULE_NO_MATCH (AgentToolStep)</code></li>
 <li class=""><code>RULE_MATCH (ToolOrchestrationStep PostTool)</code> / <code>RULE_NO_MATCH (ToolOrchestrationStep PostTool)</code></li>
 <li class=""><code>RULE_MATCH (AgentIntentResolver)</code> / <code>RULE_NO_MATCH (AgentIntentResolver)</code></li>
 <li class=""><code>RULE_MATCH (RulesStep)</code> / <code>RULE_NO_MATCH (RulesStep)</code></li>
 </ul>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="scope-enforcement">Scope enforcement<a href="#scope-enforcement" class="hash-link" aria-label="Direct link to Scope enforcement" title="Direct link to Scope enforcement" translate="no">​</a></h2>
-<p><code>ce_mcp_tool</code> and <code>ce_mcp_planner</code> are scope-validated at startup:</p>
+<p><code>ce_agent_tool</code> and <code>ce_agent_planner</code> are scope-validated at startup:</p>
 <ul>
 <li class="">null/blank scope rows are rejected</li>
 <li class=""><code>intent_code</code> must be <code>ANY</code>, <code>UNKNOWN</code>, or defined in <code>ce_intent</code></li>
