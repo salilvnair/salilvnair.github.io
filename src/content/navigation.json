@@ -5,9 +5,10 @@
     "homeSectionId": "home"
   },
   "links": [
-    { "label": "About",    "sectionId": "home" },
-    { "label": "Projects", "sectionId": "projects" },
-    { "label": "Skills",   "sectionId": "skills" }
+    { "label": "About",     "sectionId": "home" },
+    { "label": "Projects",  "sectionId": "projects" },
+    { "label": "Framework", "sectionId": "framework" },
+    { "label": "Skills",    "sectionId": "skills" }
   ],
   "cta": {
     "label": "GitHub",

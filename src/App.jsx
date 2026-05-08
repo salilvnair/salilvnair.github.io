@@ -4,6 +4,7 @@ import { Github, ChevronDown, Calendar, Zap } from 'lucide-react';
 import Navbar from './components/Navbar';
 import ChatTerminal from './components/ChatTerminal';
 import ProjectsSection from './components/ProjectsSection';
+import FrameworkSection from './components/FrameworkSection';
 import SkillsSection from './components/SkillsSection';
 import Footer from './components/Footer';
 import profileData from './content/profile.json';
@@ -69,6 +70,7 @@ export default function App() {
       </section>
 
       <ProjectsSection />
+      <FrameworkSection />
       <SkillsSection />
       <Footer />
     </div>
