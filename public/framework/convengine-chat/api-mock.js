@@ -1930,7 +1930,7 @@
     },
     {
       "user": "what is message enrichment",
-      "agent": "Message Enrichment lets you prepend/append context to every message before it reaches your backend — invisible in the chat UI. Text mode: prefix+text+postfix as a string. JSON mode: { prefix, userText, postfix, ...props } as inputParams. Set via config.messageEnrichment.",
+      "agent": "Message Enrichment lets you attach context to every message before it reaches your backend — invisible in the chat UI. prefix/suffix wrap the outgoing text, inputParams (e.g. { userId }) is merged into every request, and preHook/postHook let you run functions before/after each send. Set via config.messageEnrichment.",
       "tags": [
         "about",
         "tips"
