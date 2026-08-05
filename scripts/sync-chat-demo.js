@@ -8,18 +8,33 @@
  */
 
 import { execSync } from 'child_process';
-import { readFileSync, writeFileSync, cpSync, existsSync, unlinkSync } from 'fs';
+import { readFileSync, writeFileSync, cpSync, existsSync, unlinkSync, renameSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname   = dirname(fileURLToPath(import.meta.url));
 const ROOT        = resolve(__dirname, '..');
-const CHAT_DEMO   = resolve(__dirname, '../../convengine-ui-builder/convengine-chat-demo');
+const CHAT_DEMO   = '/Users/salilvnair/workspace/git/salilvnair/convengine-chat-demo';
 const DEST        = resolve(ROOT, 'public/framework/convengine-chat');
 const SOURCE_FAKE_CHAT = resolve(CHAT_DEMO, 'app/data/fake-chat.json');
 const ROOT_NEXT_CONFIG = resolve(CHAT_DEMO, 'next.config.mjs');
 const LOCAL_ONLY_NEXT_CONFIG = resolve(CHAT_DEMO, 'local_only/next.config.mjs');
 const hadOriginalRootConfig = existsSync(ROOT_NEXT_CONFIG);
+
+// The demo's app/api/* routes (message + SSE stream) are dev-only mock
+// handlers for `npm run dev` — the static export instead uses the
+// client-side api-mock.js fetch interceptor generated below. Route Handlers
+// (especially the dynamic stream/[conversationId] one) aren't compatible
+// with `output: 'export'`, so they're moved out of the app/ tree for the
+// duration of the build and restored afterward, same pattern as the
+// next.config.mjs swap.
+const API_DIR        = resolve(CHAT_DEMO, 'app/api');
+const API_DIR_BACKUP = resolve(CHAT_DEMO, '.sync-chat-demo-api-backup');
+// Recover from a previous crashed run that moved app/api aside but never restored it.
+if (!existsSync(API_DIR) && existsSync(API_DIR_BACKUP)) {
+  renameSync(API_DIR_BACKUP, API_DIR);
+}
+const hadApiDir = existsSync(API_DIR);
 
 function buildClientApiMock(data) {
   const embeddedData = JSON.stringify(data, null, 2);
@@ -190,6 +205,15 @@ export default { ...nextConfig, ...__syncChatDemoExportConfig };
 `;
 writeFileSync(ROOT_NEXT_CONFIG, patchedConfig, 'utf8');
 
+// ── 1b. Move app/api aside — dev-only mock routes, incompatible with
+//        `output: 'export'` (the dynamic stream/[conversationId] route has
+//        no generateStaticParams, and neither route is needed once the
+//        static build's client-side api-mock.js takes over). ───────────────
+if (hadApiDir) {
+  console.log('📦  Moving app/api aside (dev-only mock routes, not exportable)...');
+  renameSync(API_DIR, API_DIR_BACKUP);
+}
+
 try {
   // ── 2. Build ───────────────────────────────────────────────────────────────
   console.log('🔨  Building convengine-chat-demo (npm run build)...');
@@ -246,5 +270,11 @@ try {
     writeFileSync(ROOT_NEXT_CONFIG, originalRootConfig, 'utf8');
   } else if (existsSync(ROOT_NEXT_CONFIG)) {
     unlinkSync(ROOT_NEXT_CONFIG);
+  }
+
+  // ── 7. Restore app/api ─────────────────────────────────────────────────────
+  if (hadApiDir && existsSync(API_DIR_BACKUP)) {
+    console.log('♻️   Restoring app/api...');
+    renameSync(API_DIR_BACKUP, API_DIR);
   }
 }
