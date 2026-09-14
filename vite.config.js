@@ -29,6 +29,8 @@ export default defineConfig({
             req.url = '/framework/convengine-chat/index.html'
           } else if (/^\/framework\/ck8t\/?(\?.*)?$/.test(req.url)) {
             req.url = '/framework/ck8t/index.html'
+          } else if (/^\/framework\/dui\/?(\?.*)?$/.test(req.url)) {
+            req.url = '/framework/dui/index.html'
           } else if (/^\/fullscreen(\?.*)?$/.test(req.url)) {
             req.url = '/fullscreen.html'
           }

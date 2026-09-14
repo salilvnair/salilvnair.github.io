@@ -6,13 +6,41 @@
   },
   "items": [
     {
+      "id": "dui",
+      "title": "DUI — Daakia UI",
+      "subtitle": "React Component Library",
+      "description": "A React 19 + TypeScript component library of 238 components — the UI layer extracted from daakia and ck8t so both could share one design system. Every colour is a CSS variable, every component carries its own props table, and Monaco is a genuinely optional peer dependency rather than a hard one.",
+      "url": "/framework/dui/",
+      "github": "https://github.com/salilvnair/dui",
+      "tech": [
+        "React 19",
+        "TypeScript",
+        "Vite",
+        "Tailwind v4"
+      ],
+      "highlights": [
+        "238 components across 18 groups — inputs, tables, overlays, dashboards, motion",
+        "CSS-variable theming: retheme by overriding --color-* on :root or one container",
+        "Light and dark both first-class, switched by a data-theme attribute",
+        "One size prop (xxs–xxxl) threaded through every component via DuiProvider"
+      ],
+      "badge": "npm",
+      "color": "#7c8cff",
+      "colorDim": "rgba(124,140,255,0.12)"
+    },
+    {
       "id": "ck8t",
       "title": "CK8T Agent Builder Studio",
       "subtitle": "Visual Agentic Workflow Builder",
       "description": "A node-based visual canvas for building, running, and deploying agentic workflows. Design automation graphs with 30+ block types — AI agents, control flow, DB, API, MCP tools — then execute them in the browser.",
       "url": "/framework/ck8t/",
       "github": "https://github.com/ck8t/ck8t",
-      "tech": ["React", "ReactFlow", "Vite", "TypeScript"],
+      "tech": [
+        "React",
+        "ReactFlow",
+        "Vite",
+        "TypeScript"
+      ],
       "highlights": [
         "Drag-and-drop canvas with 30+ block types (Agent, MCP, DB, API, control-flow)",
         "Three runtime targets: browser app, VS Code extension, standalone Node server",
@@ -30,7 +58,12 @@
       "description": "A fully custom Docusaurus v3 documentation site with dual versioning (v1 + v2), interactive React/MDX components, in-browser custom search indexing, and version-aware navigation.",
       "url": "/framework/convengine/",
       "github": "https://github.com/salilvnair/convengine-docs",
-      "tech": ["Docusaurus", "React 19", "MDX", "Mantine 8"],
+      "tech": [
+        "Docusaurus",
+        "React 19",
+        "MDX",
+        "Mantine 8"
+      ],
       "highlights": [
         "Dual-version docs (v1 + v2) with custom switcher",
         "Interactive MDX components: FlowStep, ChatBubble, EngineDebugFlow",
@@ -48,7 +81,12 @@
       "description": "A React npm library that integrates ConvEngine's full chat UI into any project with a single component. Supports panel mode, fullscreen mode, dark/light themes, and optional audit stream visualization for developers.",
       "url": "/framework/convengine-chat/",
       "github": "https://github.com/salilvnair/convengine-chat",
-      "tech": ["React", "Vite", "Tailwind CSS", "JavaScript"],
+      "tech": [
+        "React",
+        "Vite",
+        "Tailwind CSS",
+        "JavaScript"
+      ],
       "highlights": [
         "Drop-in <ConvEngineChat mode=\"panel\" /> component",
         "Panel + Fullscreen display modes",

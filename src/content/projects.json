@@ -8,11 +8,30 @@
     "footerCtaUrl": "https://github.com/salilvnair"
   },
   "categories": [
-    { "id": "all",        "label": "All Projects" },
-    { "id": "convengine", "label": "ConvEngine Ecosystem" },
-    { "id": "java",       "label": "Java Libraries" },
-    { "id": "tools",      "label": "Tools" },
-    { "id": "vscode",     "label": "VS Code Extension" }
+    {
+      "id": "all",
+      "label": "All Projects"
+    },
+    {
+      "id": "convengine",
+      "label": "ConvEngine Ecosystem"
+    },
+    {
+      "id": "java",
+      "label": "Java Libraries"
+    },
+    {
+      "id": "tools",
+      "label": "Tools"
+    },
+    {
+      "id": "vscode",
+      "label": "VS Code Extension"
+    },
+    {
+      "id": "ui",
+      "label": "UI Library"
+    }
   ],
   "items": [
     {
@@ -20,10 +39,20 @@
       "title": "CK8T Agent Builder Studio",
       "subtitle": "Visual Agentic Workflow Builder",
       "description": "A node-based visual canvas for building, running, and deploying agentic workflows. Design automation graphs with 30+ block types — AI agents, control flow, DB, API, MCP tools — then execute them in the browser, inside VS Code, or on a standalone Fastify server.",
-      "category": ["tools", "vscode"],
+      "category": [
+        "tools",
+        "vscode"
+      ],
       "github": "https://github.com/ck8t/ck8t",
       "demoUrl": "/framework/ck8t",
-      "tech": ["React", "ReactFlow", "Vite", "TypeScript", "Fastify", "VS Code Extension"],
+      "tech": [
+        "React",
+        "ReactFlow",
+        "Vite",
+        "TypeScript",
+        "Fastify",
+        "VS Code Extension"
+      ],
       "highlights": [
         "Drag-and-drop canvas with 30+ block types (Agent, MCP, DB, API, control-flow)",
         "Three runtime targets: browser app, VS Code extension, standalone Node server",
@@ -39,6 +68,39 @@
       "colorDim": "rgba(124,58,237,0.12)"
     },
     {
+      "id": "dui",
+      "title": "DUI — Daakia UI",
+      "subtitle": "React Component Library",
+      "description": "A React 19 + TypeScript component library of 238 components — the UI layer extracted from daakia and ck8t so both could share one design system. Every colour is a CSS variable, every component carries its own props table, and Monaco is a genuinely optional peer dependency rather than a hard one.",
+      "category": [
+        "ui",
+        "tools"
+      ],
+      "github": "https://github.com/salilvnair/dui",
+      "demoUrl": "/framework/dui/",
+      "tech": [
+        "React 19",
+        "TypeScript",
+        "Vite",
+        "Tailwind v4",
+        "Monaco",
+        "Zustand"
+      ],
+      "highlights": [
+        "238 components across 18 groups — inputs, tables, overlays, dashboards, motion",
+        "CSS-variable theming: retheme by overriding --color-* on :root or one container",
+        "Light and dark both first-class, switched by a data-theme attribute",
+        "One size prop (xxs–xxxl) threaded through every component via DuiProvider",
+        "Monaco-backed editor that falls back to plain text when Monaco is absent",
+        "Tree-shakeable ESM with real .d.ts types, published on npm"
+      ],
+      "badge": "npm",
+      "version": "v1.0.11",
+      "language": "TypeScript",
+      "color": "#7c8cff",
+      "colorDim": "rgba(124,140,255,0.12)"
+    },
+    {
       "id": "convengine",
       "title": "ConvEngine",
       "subtitle": "Deterministic Conversational Workflow Engine",
@@ -46,7 +108,16 @@
       "category": "convengine",
       "github": "https://github.com/salilvnair/convengine",
       "demoUrl": null,
-      "tech": ["Java", "Spring Boot", "Oracle", "PostgreSQL", "SQLite", "LLM", "SSE", "STOMP"],
+      "tech": [
+        "Java",
+        "Spring Boot",
+        "Oracle",
+        "PostgreSQL",
+        "SQLite",
+        "LLM",
+        "SSE",
+        "STOMP"
+      ],
       "highlights": [
         "15-step DAG-resolved pipeline per conversation turn",
         "MCP tool orchestration with 7 executor adapter types",
@@ -70,7 +141,14 @@
       "category": "convengine",
       "github": "https://github.com/salilvnair/convengine-docs",
       "demoUrl": "/framework/convengine",
-      "tech": ["Docusaurus", "React 19", "MDX", "Mantine 8", "React Flow", "Tailwind"],
+      "tech": [
+        "Docusaurus",
+        "React 19",
+        "MDX",
+        "Mantine 8",
+        "React Flow",
+        "Tailwind"
+      ],
       "highlights": [
         "Dual-version docs (v1 + v2) with custom switcher",
         "Interactive MDX components: FlowStep, ChatBubble, EngineDebugFlow",
@@ -92,7 +170,12 @@
       "category": "convengine",
       "github": "https://github.com/salilvnair/convengine-chat",
       "demoUrl": "/framework/convengine-chat",
-      "tech": ["React", "Vite", "Tailwind CSS", "JavaScript"],
+      "tech": [
+        "React",
+        "Vite",
+        "Tailwind CSS",
+        "JavaScript"
+      ],
       "highlights": [
         "Drop-in <ConvEngineChat mode=\"panel\" /> component",
         "Panel + Fullscreen display modes",
@@ -114,7 +197,11 @@
       "category": "java",
       "github": "https://github.com/salilvnair/excelprocessor",
       "demoUrl": null,
-      "tech": ["Java", "Maven", "Spring"],
+      "tech": [
+        "Java",
+        "Maven",
+        "Spring"
+      ],
       "highlights": [
         "Annotation-based @Sheet and @Cell POJO mapping",
         "Built-in validations: required, numeric, email, minItems, maxItems",
@@ -137,7 +224,13 @@
       "category": "java",
       "github": "https://github.com/salilvnair/api-processor",
       "demoUrl": null,
-      "tech": ["Java", "Spring", "REST", "SOAP", "Maven"],
+      "tech": [
+        "Java",
+        "Spring",
+        "REST",
+        "SOAP",
+        "Maven"
+      ],
       "highlights": [
         "Facade → Handler → Delegate layered architecture",
         "Built-in retry with configurable attempts + backoff",
@@ -160,7 +253,10 @@
       "category": "java",
       "github": "https://github.com/salilvnair/jsonprocessor",
       "demoUrl": null,
-      "tech": ["Java", "Maven"],
+      "tech": [
+        "Java",
+        "Maven"
+      ],
       "highlights": [
         "JSON Validator + JSON Path Util + REST API Utils in one",
         "Single Maven Central dependency",
@@ -180,7 +276,10 @@
       "category": "java",
       "github": "https://github.com/salilvnair/json-validator",
       "demoUrl": null,
-      "tech": ["Java", "Maven"],
+      "tech": [
+        "Java",
+        "Maven"
+      ],
       "highlights": [
         "@JsonKeyValidation annotation-driven field rules",
         "Built-in validators: required, email, numeric, minItems, maxItems",
@@ -202,7 +301,11 @@
       "category": "tools",
       "github": "https://github.com/salilvnair/mockey",
       "demoUrl": null,
-      "tech": ["Node.js", "Express", "JavaScript"],
+      "tech": [
+        "Node.js",
+        "Express",
+        "JavaScript"
+      ],
       "highlights": [
         "Code-first resolver pattern — no YAML/JSON-only configs",
         "Multi-resolver chains per route (first match wins)",
