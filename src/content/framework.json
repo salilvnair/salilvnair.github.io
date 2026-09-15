@@ -9,7 +9,7 @@
       "id": "dui",
       "title": "DUI — Daakia UI",
       "subtitle": "React Component Library",
-      "description": "A React 19 + TypeScript component library of 238 components — the UI layer extracted from daakia and ck8t so both could share one design system. Every colour is a CSS variable, every component carries its own props table, and Monaco is a genuinely optional peer dependency rather than a hard one.",
+      "description": "A React 19 + TypeScript component library of 281 components — the UI layer extracted from daakia and ck8t so both could share one design system. Every colour is a CSS variable, every component carries its own props table, and Monaco is a genuinely optional peer dependency rather than a hard one.",
       "url": "/framework/dui/",
       "github": "https://github.com/salilvnair/dui",
       "tech": [
@@ -19,7 +19,7 @@
         "Tailwind v4"
       ],
       "highlights": [
-        "238 components across 18 groups — inputs, tables, overlays, dashboards, motion",
+        "281 components across 18 groups — inputs, tables, overlays, dashboards, charts, motion",
         "CSS-variable theming: retheme by overriding --color-* on :root or one container",
         "Light and dark both first-class, switched by a data-theme attribute",
         "One size prop (xxs–xxxl) threaded through every component via DuiProvider"

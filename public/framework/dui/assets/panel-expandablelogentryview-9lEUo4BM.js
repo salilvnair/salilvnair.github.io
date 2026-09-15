@@ -1,0 +1,38 @@
+import{j as e,dj as o,dk as n,dl as l,bm as s,bn as d,v as c,d as p}from"./dui-lib-CMA--A_A.js";import{E as t,D as i,F as g,P as x,a}from"./panel-badgechip-DpEaHX-u.js";const r=Date.now();function m(){return e.jsxs("div",{children:[e.jsx(t,{title:"Request Sent Entry",description:"Outbound request log — ArrowUpRight icon, purple method badge",code:`<ExpandableLogEntryView
+  icon={<ArrowUpRightIcon size={13} />}
+  title="POST /api/users"
+  badge="POST"
+  badgeColor="var(--color-method-post)"
+  timestamp={Date.now()}
+>
+  <pre>{'{ "name": "Alice", "email": "alice@example.com" }'}</pre>
+</ExpandableLogEntryView>`,children:e.jsx(o,{icon:e.jsx(n,{size:13}),title:"POST /api/users",badge:"POST",badgeColor:"var(--color-method-post)",timestamp:r-3e3,children:e.jsx("pre",{style:{margin:0,fontSize:11,fontFamily:"monospace",color:"var(--color-text-secondary)",padding:"8px 12px"},children:JSON.stringify({name:"Alice Nakamura",email:"alice@example.com",role:"admin"},null,2)})})}),e.jsx(t,{title:"Response Received Entry",description:"Inbound response — ArrowDownLeft icon, green 200 OK badge",code:`<ExpandableLogEntryView
+  icon={<ArrowDownLeftIcon size={13} />}
+  title="200 OK — /api/users"
+  badge="200"
+  badgeColor="var(--color-success)"
+  timestamp={Date.now()}
+>
+  <pre>{responseBody}</pre>
+</ExpandableLogEntryView>`,children:e.jsx(o,{icon:e.jsx(l,{size:13}),title:"200 OK — /api/users",badge:"200",badgeColor:"var(--color-success)",timestamp:r-2800,defaultExpanded:!0,children:e.jsx("pre",{style:{margin:0,fontSize:11,fontFamily:"monospace",color:"var(--color-text-secondary)",padding:"8px 12px"},children:JSON.stringify({id:42,name:"Alice Nakamura",createdAt:"2024-01-15T09:30:00Z"},null,2)})})}),e.jsx(t,{title:"Warning Entry",description:"Non-critical warning — WarningTriangle icon, yellow badge",code:`<ExpandableLogEntryView
+  icon={<WarningTriangleIcon size={13} />}
+  title="Rate limit approaching (80%)"
+  badge="WARN"
+  badgeColor="var(--color-warning)"
+  timestamp={Date.now()}
+>
+  <p>429 Too Many Requests will trigger after 20 more requests.</p>
+</ExpandableLogEntryView>`,children:e.jsx(o,{icon:e.jsx(s,{size:13}),title:"Rate limit approaching (80%)",badge:"WARN",badgeColor:"var(--color-warning)",timestamp:r-6e4,children:e.jsx("div",{style:{padding:"8px 12px",fontSize:11,color:"var(--color-text-secondary)"},children:"You have used 80 of your 100 requests per minute quota. Slow down or the next request will return 429 Too Many Requests."})})}),e.jsx(t,{title:"Error Entry",description:"Connection failure — CloseCircle icon, red badge",code:`<ExpandableLogEntryView
+  icon={<CloseCircleIcon size={13} />}
+  title="Connection refused — /api/auth"
+  badge="ERR"
+  badgeColor="var(--color-error)"
+  timestamp={Date.now()}
+>
+  <pre>ECONNREFUSED 127.0.0.1:3000</pre>
+</ExpandableLogEntryView>`,children:e.jsx(o,{icon:e.jsx(d,{size:13}),title:"Connection refused — /api/auth",badge:"ERR",badgeColor:"var(--color-error)",timestamp:r-12e4,defaultExpanded:!0,children:e.jsxs("pre",{style:{margin:0,fontSize:11,fontFamily:"monospace",color:"var(--color-error)",padding:"8px 12px"},children:["Error: connect ECONNREFUSED 127.0.0.1:3000",`
+`,"    at TCPConnectWrap.afterConnect"]})})}),e.jsx(t,{title:"Log Feed — Multiple Stacked Entries",description:"A realistic request/response log feed showing all entry types together",code:`entries.map(e => (
+  <ExpandableLogEntryView key={e.id} icon={e.icon} title={e.title} badge={e.badge} badgeColor={e.color} timestamp={e.ts}>
+    {e.body}
+  </ExpandableLogEntryView>
+))`,children:e.jsxs("div",{style:{display:"flex",flexDirection:"column",gap:2},children:[e.jsx(o,{icon:e.jsx(n,{size:13}),title:"GET /api/collections",badge:"GET",badgeColor:"var(--color-method-get)",timestamp:r-5e3,children:e.jsx("div",{style:{padding:"6px 12px",fontSize:11,color:"var(--color-text-muted)"},children:"No body"})}),e.jsx(o,{icon:e.jsx(l,{size:13}),title:"200 OK — /api/collections",badge:"200",badgeColor:"var(--color-success)",timestamp:r-4800,children:e.jsxs("pre",{style:{margin:0,padding:"6px 12px",fontSize:11,fontFamily:"monospace",color:"var(--color-text-secondary)"},children:["[","{","...","}","×12]"]})}),e.jsx(o,{icon:e.jsx(c,{size:13}),title:"Cache hit for /api/collections",badge:"INFO",badgeColor:"var(--color-info)",timestamp:r-4700,children:e.jsx("div",{style:{padding:"6px 12px",fontSize:11,color:"var(--color-text-muted)"},children:"Response served from local cache (TTL 30s)"})}),e.jsx(o,{icon:e.jsx(n,{size:13}),title:"DELETE /api/collections/7",badge:"DELETE",badgeColor:"var(--color-method-delete)",timestamp:r-2e3,children:e.jsx("div",{style:{padding:"6px 12px",fontSize:11,color:"var(--color-text-muted)"},children:"No body"})}),e.jsx(o,{icon:e.jsx(p,{size:13}),title:"204 No Content — /api/collections/7",badge:"204",badgeColor:"var(--color-success)",timestamp:r-1800,children:e.jsx("div",{style:{padding:"6px 12px",fontSize:11,color:"var(--color-text-muted)"},children:"Empty response body"})})]})})]})}const u=Object.freeze(Object.defineProperty({__proto__:null,ExpandableLogEntryViewExamples:m},Symbol.toStringTag,{value:"Module"}));function b(){return e.jsxs("div",{style:{maxWidth:860},children:[e.jsx(i,{title:"Features",children:e.jsx(g,{features:[{label:"Expandable log row with chevron",color:"var(--color-primary)"},{label:"Icon slot (left)",color:"var(--color-success)"},{label:"Colored badge label",color:"var(--color-info)"},{label:"Unix timestamp rendered as HH:MM:SS",color:"var(--color-warning)"},{label:"Default expanded state",color:"#a855f7"},{label:"Arbitrary children in body",color:"#ec4899"},{label:"CSS custom property for badge color",color:"#14b8a6"}]})}),e.jsx(i,{title:"Props",children:e.jsx(x,{props:[{name:"icon",type:"ReactNode",required:!0,description:"Icon rendered on the left side of the header row."},{name:"title",type:"string",required:!0,description:"Main log entry title text."},{name:"badge",type:"string",description:'Short colored label shown after the title (e.g. "GET", "200").'},{name:"badgeColor",type:"string",description:"CSS color or var() for the badge text and tinted background. Sets --dui-logentry-badge."},{name:"timestamp",type:"number",description:"Unix timestamp in milliseconds. Renders as localized HH:MM:SS AM/PM string."},{name:"defaultExpanded",type:"boolean",default:"false",description:"Whether the entry starts expanded."},{name:"children",type:"ReactNode",required:!0,description:"Content rendered in the expandable body area."},{name:"className",type:"string",description:"Extra CSS class on the root element."}]})}),e.jsxs(i,{title:"Layout structure",children:[e.jsxs(a,{type:"info",children:["The header row is: ",e.jsx("code",{children:"[icon] [title] [badge?] — [timestamp?] [chevron]"}),". The chevron rotates 180° when expanded. The content area appears below the header when expanded."]}),e.jsx(a,{type:"tip",children:"Use JsonTreeView or a pre-styled code block as children to display structured log data. The content area has no built-in padding — add padding inside the children as needed."})]}),e.jsx(i,{title:"DUI Sizing & Theming",description:"ExpandableLogEntryView does not read size, width, color, or borderRadius from the DuiProvider context — it is not part of the sized-component system and has no size prop to fall back to a provider default.",children:e.jsxs(a,{type:"info",children:["ExpandableLogEntryView is unaffected by ",e.jsx("code",{children:"<DuiProvider>"})," size/color context. Style it directly via its own props (and CSS variables where documented above) rather than expecting provider-level sizing to apply."]})})]})}const E=Object.freeze(Object.defineProperty({__proto__:null,ExpandableLogEntryViewDocs:b},Symbol.toStringTag,{value:"Module"}));export{u as E,E as a};
