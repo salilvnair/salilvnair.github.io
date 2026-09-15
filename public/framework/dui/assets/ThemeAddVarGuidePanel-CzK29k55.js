@@ -1,0 +1,82 @@
+import{j as e,b as l,C as n}from"./dui-lib-D_5u_TrP.js";function d({step:o,title:i,tag:t,tagColor:a,children:x}){return e.jsxs("div",{style:{border:`1px solid color-mix(in srgb, ${a} 25%, var(--color-surface-border))`,borderLeft:`3px solid ${a}`,borderRadius:10,background:"var(--color-surface)",marginBottom:20,overflow:"hidden"},children:[e.jsxs("div",{style:{display:"flex",alignItems:"center",gap:10,padding:"12px 16px",borderBottom:"1px solid color-mix(in srgb, var(--color-surface-border) 60%, transparent)",background:`color-mix(in srgb, ${a} 5%, transparent)`},children:[e.jsx("div",{style:{width:24,height:24,borderRadius:"50%",background:a,color:"var(--color-surface)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:11,fontWeight:800,flexShrink:0},children:o}),e.jsx("span",{style:{fontSize:13,fontWeight:700,color:"var(--color-text-primary)",flex:1},children:i}),e.jsx(l,{label:t,color:a,size:"xs",active:!0})]}),e.jsx("div",{style:{padding:"14px 16px"},children:x})]})}function s({label:o}){return e.jsx("div",{style:{fontSize:9,fontWeight:800,letterSpacing:"0.1em",textTransform:"uppercase",color:"var(--color-text-muted)",marginBottom:6,marginTop:14},children:o})}function c({children:o,style:i}){return e.jsx("p",{style:{margin:"0 0 10px",fontSize:12,lineHeight:1.7,color:"var(--color-text-secondary)",...i},children:o})}function r({children:o}){return e.jsx("code",{style:{fontSize:11,fontFamily:"monospace",background:"color-mix(in srgb, var(--color-surface-border) 60%, transparent)",color:"var(--color-primary)",padding:"1px 5px",borderRadius:4},children:o})}function h({color:o,icon:i,children:t}){return e.jsxs("div",{style:{display:"flex",gap:10,padding:"10px 12px",background:`color-mix(in srgb, ${o} 8%, transparent)`,border:`1px solid color-mix(in srgb, ${o} 22%, transparent)`,borderRadius:8,marginTop:10,marginBottom:4},children:[e.jsx("span",{style:{fontSize:14,flexShrink:0,lineHeight:1.5},children:i}),e.jsx("div",{style:{fontSize:11.5,lineHeight:1.6,color:"var(--color-text-secondary)"},children:t})]})}function p({items:o}){return e.jsx("div",{style:{display:"flex",gap:10,flexWrap:"wrap",marginTop:8,marginBottom:4},children:o.map(({label:i,color:t,note:a})=>e.jsxs("div",{style:{display:"flex",alignItems:"center",gap:7},children:[e.jsx("div",{style:{width:20,height:20,borderRadius:5,background:t,border:"1px solid color-mix(in srgb, var(--color-surface-border) 80%, transparent)",flexShrink:0}}),e.jsxs("div",{children:[e.jsx("div",{style:{fontSize:11,color:"var(--color-text-primary)",fontWeight:600},children:i}),a&&e.jsx("div",{style:{fontSize:10,color:"var(--color-text-muted)"},children:a})]})]},i))})}const g=`// webview-ui/src/dui/theme/core.ts
+
+export interface ThemeSchemaEntry {
+  group:   string;  // Category in Theme editor (e.g. "brand", "status")
+  key:     string;  // YAML export/import key (e.g. "my_highlight")
+  cssVar:  string;  // CSS custom property name (e.g. "--color-my-highlight")
+  comment: string;  // Tooltip description in the editor
+}`,m=`// webview-ui/src/dui/theme/core.ts
+
+export const SCHEMA: ThemeSchemaEntry[] = [
+  // ... existing entries ...
+
+  // ✅ Add your new entry at the end of the relevant group:
+  {
+    group:   'brand',
+    key:     'my_highlight',
+    cssVar:  '--color-my-highlight',
+    comment: 'Custom highlight color for featured elements',
+  },
+];`,u=`/* webview-ui/src/index.css — inside the @theme block */
+
+@theme {
+  /* ... existing vars ... */
+
+  /* ✅ Add your new CSS custom property with a default value: */
+  --color-my-highlight: #a78bfa;
+}`,v=`/* webview-ui/src/index.css — optional light theme override */
+
+[data-theme="light"] {
+  /* ✅ Override for light mode (darker shade for contrast): */
+  --color-my-highlight: #7c3aed;
+}`,y=`// webview-ui/src/colors/daakia-colors.ts  (optional — for JS usage)
+
+export const palette = {
+  // ... existing entries ...
+
+  // ✅ Add a semantic pair for light + dark:
+  myHighlight: { light: '#7c3aed', dark: '#a78bfa' },
+};
+
+// Then in resolveColors() if you need it in JS:
+export function resolveColors() {
+  return {
+    // ...
+    myHighlight: themed(palette.myHighlight),
+  };
+}`,b=`// Inline style in any .tsx file:
+<div style={{ color: 'var(--color-my-highlight)' }}>
+  Highlighted text
+</div>
+
+// With a DUI chip:
+<ChipView
+  label="Featured"
+  color="var(--color-my-highlight)"
+  active
+/>
+
+// With ButtonView accentColor:
+<ButtonView
+  label="Highlight Action"
+  accentColor="var(--color-my-highlight)"
+  variant="primary"
+/>`,f=`/* In a .css or .module.css file: */
+.my-card {
+  border-left: 3px solid var(--color-my-highlight);
+  background: color-mix(in srgb, var(--color-my-highlight) 8%, transparent);
+}
+
+/* With Tailwind v4 arbitrary values: */
+<span className="text-[var(--color-my-highlight)] font-semibold">
+  Featured Label
+</span>`,j=`// Wire it into LiveColorCustomizer for on-the-fly editing:
+<LiveColorCustomizer
+  vars={[
+    {
+      cssVar:   '--color-my-highlight',
+      yamlKey:  'brand.my_highlight',   // must match SCHEMA group.key
+      label:    'My Highlight',
+    },
+  ]}
+/>`;function w(){return e.jsxs("div",{style:{maxWidth:860,margin:"0 auto",padding:"4px 0 40px"},children:[e.jsxs("div",{style:{marginBottom:28,padding:"18px 20px",background:"color-mix(in srgb, var(--color-primary) 6%, transparent)",border:"1px solid color-mix(in srgb, var(--color-primary) 18%, var(--color-surface-border))",borderRadius:12},children:[e.jsxs("div",{style:{display:"flex",alignItems:"center",gap:10,marginBottom:10},children:[e.jsx(l,{label:"Guide",color:"var(--color-primary)",active:!0,size:"sm"}),e.jsx(l,{label:"Theme System",color:"var(--color-info)",size:"sm"}),e.jsx(l,{label:"4 Steps",color:"var(--color-success)",size:"sm"})]}),e.jsx("h2",{style:{margin:"0 0 8px",fontSize:18,fontWeight:800,color:"var(--color-text-primary)",letterSpacing:"-0.01em"},children:"How to add a new theme variable"}),e.jsxs("p",{style:{margin:0,fontSize:12.5,lineHeight:1.7,color:"var(--color-text-secondary)"},children:["Daakia's theme system is built on CSS custom properties (CSS variables). Every color in the UI is a ",e.jsx(r,{children:"var(--color-*)"})," token — no hardcoded hex anywhere. Adding a new variable takes four steps: register it in the schema, declare its default value, use it in a component, and optionally test it in the live editor."]})]}),e.jsx("div",{style:{display:"flex",alignItems:"center",gap:0,marginBottom:28,flexWrap:"wrap"},children:[{n:"1",label:"Register in SCHEMA",color:"var(--color-primary)"},{n:"2",label:"Declare CSS var",color:"var(--color-info)"},{n:"3",label:"Use in component",color:"var(--color-success)"},{n:"4",label:"Test live",color:"var(--color-warning)"}].map((o,i,t)=>e.jsxs("div",{style:{display:"flex",alignItems:"center"},children:[e.jsxs("div",{style:{display:"flex",alignItems:"center",gap:7,padding:"8px 14px",background:`color-mix(in srgb, ${o.color} 10%, var(--color-surface))`,border:`1px solid color-mix(in srgb, ${o.color} 28%, var(--color-surface-border))`,borderRadius:8},children:[e.jsx("div",{style:{width:20,height:20,borderRadius:"50%",background:o.color,color:"var(--color-surface)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:10,fontWeight:800,flexShrink:0},children:o.n}),e.jsx("span",{style:{fontSize:11.5,fontWeight:600,color:"var(--color-text-primary)",whiteSpace:"nowrap"},children:o.label})]}),i<t.length-1&&e.jsx("div",{style:{width:24,height:1,background:"var(--color-surface-border)",flexShrink:0}})]},o.n))}),e.jsxs(d,{step:1,title:"Register in SCHEMA — theme/core.ts",tag:"TypeScript",tagColor:"var(--color-primary)",children:[e.jsxs(c,{children:["The ",e.jsx(r,{children:"SCHEMA"})," array in ",e.jsx(r,{children:"webview-ui/src/dui/theme/core.ts"})," is the registry of every CSS variable that the Theme Customization editor knows about. Each entry is a ",e.jsx(r,{children:"ThemeSchemaEntry"})," object with four fields."]}),e.jsx(s,{label:"The interface"}),e.jsx(n,{language:"typescript",code:g,showCopyButton:!0}),e.jsx(s,{label:"Add your entry"}),e.jsxs(c,{children:["Pick a ",e.jsx(r,{children:"group"})," that matches where your color belongs logically. Existing groups include: ",e.jsx(r,{children:"brand"}),", ",e.jsx(r,{children:"surface"}),", ",e.jsx(r,{children:"panel"}),", ",e.jsx(r,{children:"text"}),","," ",e.jsx(r,{children:"status"}),", ",e.jsx(r,{children:"protocols"}),", ",e.jsx(r,{children:"component_button"}),", and more. Create a new group name if none fits — it becomes its own section header in the editor."]}),e.jsx(n,{language:"typescript",code:m,showCopyButton:!0}),e.jsxs(h,{color:"var(--color-primary)",icon:"💡",children:["The ",e.jsx("strong",{children:"key"})," becomes the YAML path on export (e.g."," ",e.jsx(r,{children:'brand.my_highlight: "#a78bfa"'}),"). Keep it snake_case, dot-free. The ",e.jsx("strong",{children:"cssVar"})," must start with ",e.jsx(r,{children:"--color-"})," to match the convention."]})]}),e.jsxs(d,{step:2,title:"Declare the CSS variable — index.css",tag:"CSS",tagColor:"var(--color-info)",children:[e.jsxs(c,{children:["CSS variables in Daakia are declared in ",e.jsx(r,{children:"webview-ui/src/index.css"})," inside the"," ",e.jsx(r,{children:"@theme"})," block (Tailwind v4 syntax). This sets the default value — what every component sees when no runtime theme override is active."]}),e.jsx(s,{label:"Add to @theme block"}),e.jsx(n,{language:"css",code:u,showCopyButton:!0}),e.jsx(s,{label:"Optional — light mode override"}),e.jsxs(c,{children:["If your variable needs a different shade in light mode, add a"," ",e.jsx(r,{children:'[data-theme="light"]'})," block below the ",e.jsx(r,{children:"@theme"})," declaration."]}),e.jsx(n,{language:"css",code:v,showCopyButton:!0}),e.jsx(p,{items:[{label:"Dark value",color:"#a78bfa",note:"--color-my-highlight (dark)"},{label:"Light value",color:"#7c3aed",note:"--color-my-highlight (light)"}]}),e.jsx(s,{label:"Optional — JS usage via daakia-colors.ts"}),e.jsxs(c,{children:["If you need the color value in TypeScript (e.g. for canvas drawing or third-party charts that don't support CSS vars), add it to the ",e.jsx(r,{children:"palette"})," object too. Components that only use inline ",e.jsx(r,{children:"style"})," attributes or CSS files don't need this."]}),e.jsx(n,{language:"typescript",code:y,showCopyButton:!0}),e.jsxs(h,{color:"var(--color-info)",icon:"ℹ️",children:["Most DUI components already accept ",e.jsx(r,{children:"color"})," or ",e.jsx(r,{children:"accentColor"})," as a CSS variable string like ",e.jsx(r,{children:'"var(--color-my-highlight)"'})," — no JS color resolution needed. Only add to ",e.jsx(r,{children:"daakia-colors.ts"})," when you truly need a resolved hex string at runtime."]})]}),e.jsxs(d,{step:3,title:"Use the variable in any DUI component",tag:"React",tagColor:"var(--color-success)",children:[e.jsxs(c,{children:["Once the CSS variable is declared, use it anywhere via the ",e.jsx(r,{children:"var(--color-my-highlight)"})," ","syntax. No import required — CSS variables cascade to all children automatically."]}),e.jsx(s,{label:"Inline styles and DUI component props"}),e.jsx(n,{language:"tsx",code:b,showCopyButton:!0}),e.jsx(s,{label:"CSS files and Tailwind arbitrary values"}),e.jsx(n,{language:"css",code:f,showCopyButton:!0}),e.jsxs(h,{color:"var(--color-error)",icon:"🚫",children:[e.jsx("strong",{children:"Rule:"})," NEVER write a hardcoded hex value like ",e.jsx(r,{children:"#a78bfa"})," in a"," ",e.jsx(r,{children:".tsx"})," file. Always use ",e.jsx(r,{children:"var(--color-my-highlight)"})," or import from"," ",e.jsx(r,{children:"daakia-colors.ts"}),". This is enforced by project convention — violations must be fixed immediately."]}),e.jsx(s,{label:"Live example with current theme"}),e.jsxs("div",{style:{display:"flex",gap:10,flexWrap:"wrap",marginTop:4},children:[e.jsx(l,{label:"var(--color-primary)",color:"var(--color-primary)",active:!0,size:"sm"}),e.jsx(l,{label:"var(--color-success)",color:"var(--color-success)",active:!0,size:"sm"}),e.jsx(l,{label:"var(--color-warning)",color:"var(--color-warning)",active:!0,size:"sm"}),e.jsx(l,{label:"var(--color-error)",color:"var(--color-error)",active:!0,size:"sm"}),e.jsx(l,{label:"var(--color-info)",color:"var(--color-info)",active:!0,size:"sm"}),e.jsx(l,{label:"var(--color-protocol-rest)",color:"var(--color-protocol-rest)",size:"sm"}),e.jsx(l,{label:"var(--color-protocol-graphql)",color:"var(--color-protocol-graphql)",size:"sm"})]}),e.jsx("p",{style:{margin:"8px 0 0",fontSize:11,color:"var(--color-text-muted)"},children:"These chips render with the current CSS var values — switch the theme toggle to see them update live."})]}),e.jsxs(d,{step:4,title:"Test it in the Theme Customization panel",tag:"Live Preview",tagColor:"var(--color-warning)",children:[e.jsxs(c,{children:["Because you registered the variable in ",e.jsx(r,{children:"SCHEMA"}),", it will automatically appear in the ",e.jsx("strong",{children:"Theme Customization"})," panel (Settings → DUI Showcase → Theme Customization). The panel groups entries by their ",e.jsx(r,{children:"group"})," field and shows a clickable color tile for each one. Click any tile to open the color picker and test your color live — no rebuild needed."]}),e.jsx(s,{label:"What you'll see in the editor"}),e.jsx("div",{style:{display:"grid",gridTemplateColumns:"repeat(3, 1fr)",gap:8,marginBottom:12},children:[{label:"Group header",desc:'"brand" → collapsible section',color:"var(--color-primary)"},{label:"Color tile",desc:"Click to open color picker",color:"var(--color-info)"},{label:"YAML key chip",desc:"brand.my_highlight shown below",color:"var(--color-success)"}].map(({label:o,desc:i,color:t})=>e.jsxs("div",{style:{padding:"10px 12px",background:`color-mix(in srgb, ${t} 7%, var(--color-surface))`,border:`1px solid color-mix(in srgb, ${t} 20%, var(--color-surface-border))`,borderRadius:8},children:[e.jsx("div",{style:{fontSize:11,fontWeight:700,color:"var(--color-text-primary)",marginBottom:3},children:o}),e.jsx("div",{style:{fontSize:10.5,color:"var(--color-text-muted)"},children:i})]},o))}),e.jsx(s,{label:"Wire into LiveColorCustomizer (optional)"}),e.jsxs(c,{children:["If you want a focused editing panel for just your new variable (e.g. in a custom settings page), use ",e.jsx(r,{children:"LiveColorCustomizer"})," directly. Pass the same ",e.jsx(r,{children:"cssVar"})," and ",e.jsx(r,{children:"yamlKey"})," ","from your SCHEMA entry."]}),e.jsx(n,{language:"tsx",code:j,showCopyButton:!0}),e.jsxs(h,{color:"var(--color-warning)",icon:"✨",children:["Changes made in the Theme editor or LiveColorCustomizer are applied via"," ",e.jsx(r,{children:"document.documentElement.style.setProperty()"})," and persist for the session. Use ",e.jsx("strong",{children:"Export YAML"})," to save your theme and ",e.jsx("strong",{children:"Upload YAML"})," to restore it. The YAML key will be ",e.jsx(r,{children:"brand.my_highlight"})," (matching your group + key from SCHEMA)."]})]}),e.jsxs("div",{style:{padding:"16px 18px",background:"var(--color-surface)",border:"1px solid var(--color-surface-border)",borderRadius:10},children:[e.jsx("div",{style:{fontSize:10,fontWeight:800,letterSpacing:"0.1em",textTransform:"uppercase",color:"var(--color-text-muted)",marginBottom:12},children:"Quick reference — files to touch"}),e.jsx("div",{style:{display:"flex",flexDirection:"column",gap:8},children:[{file:"webview-ui/src/dui/theme/core.ts",purpose:"Register ThemeSchemaEntry in SCHEMA array",required:!0,color:"var(--color-primary)"},{file:"webview-ui/src/index.css",purpose:"Declare CSS variable in @theme block",required:!0,color:"var(--color-info)"},{file:"webview-ui/src/colors/daakia-colors.ts",purpose:"Add palette pair for JS usage (light/dark hex)",required:!1,color:"var(--color-text-muted)"}].map(({file:o,purpose:i,required:t,color:a})=>e.jsxs("div",{style:{display:"flex",alignItems:"flex-start",gap:10,padding:"9px 12px",background:"color-mix(in srgb, var(--color-surface-border) 30%, transparent)",borderRadius:7},children:[e.jsx(l,{label:t?"Required":"Optional",color:t?"var(--color-success)":a,size:"xs",active:t}),e.jsxs("div",{style:{flex:1},children:[e.jsx("div",{style:{fontSize:11,fontFamily:"monospace",color:"var(--color-text-primary)",fontWeight:600,marginBottom:2},children:o}),e.jsx("div",{style:{fontSize:11,color:"var(--color-text-muted)"},children:i})]})]},o))})]})]})}export{w as ThemeAddVarGuidePanel};

@@ -1,0 +1,34 @@
+import{j as e,a3 as t,A as a,c as s,Z as l,a4 as c,a5 as d,h as p}from"./dui-lib-D_5u_TrP.js";import{E as o,D as i,F as m,P as n,b as r}from"./panel-badgechip-qgj4nFkf.js";function u(){return e.jsxs("div",{children:[e.jsx(o,{title:"No Collections Yet",description:"FolderIcon + CTA button — encourages first action",code:`<EmptyStateView
+  icon={<FolderIcon size={32} />}
+  title="No collections yet"
+  message="Create your first collection to group related API requests together."
+  action={{ label: '+ New Collection', onClick: () => {} }}
+/>`,children:e.jsx(t,{icon:e.jsx(a,{size:32}),title:"No collections yet",message:"Create your first collection to group related API requests together.",action:{label:"+ New Collection",onClick:()=>{}}})}),e.jsx(o,{title:"No Search Results",description:"SearchIcon, no CTA — explains the empty state without offering action",code:`<EmptyStateView
+  icon={<SearchIcon size={28} />}
+  title='No results for "payment"'
+  message="Try a different keyword or check your spelling."
+/>`,children:e.jsx(t,{icon:e.jsx(s,{size:28}),title:'No results for "payment"',message:"Try a different keyword or check your spelling."})}),e.jsx(o,{title:"Empty Response Body",description:"DocumentIcon — shown when the API returns an empty 204 body",code:`<EmptyStateView
+  icon={<DocumentIcon size={28} />}
+  title="Empty response body"
+  message="The server returned a 204 No Content response."
+  accentColor="var(--color-text-muted)"
+/>`,children:e.jsx(t,{icon:e.jsx(l,{size:28}),title:"Empty response body",message:"The server returned a 204 No Content response.",accentColor:"var(--color-text-muted)"})}),e.jsx(o,{title:"No Environment Variables",description:"Custom accentColor matches the REST protocol color",code:`<EmptyStateView
+  icon={<CollectionsFolderIcon size={28} />}
+  title="No variables defined"
+  message="Add key–value pairs to use {{variable}} placeholders in your requests."
+  accentColor="var(--color-protocol-rest)"
+  action={{ label: '+ Add Variable', onClick: () => {} }}
+/>`,children:e.jsx(t,{icon:e.jsx(c,{size:28}),title:"No variables defined",message:"Add key–value pairs to use {{variable}} placeholders in your requests.",accentColor:"var(--color-protocol-rest)",action:{label:"+ Add Variable",onClick:()=>{}}})}),e.jsx(o,{title:"Empty Request History",description:"Minimal — no icon, compact mode, muted tone",code:`<EmptyStateView
+  title="No history yet"
+  message="Requests you send will appear here."
+  compact
+/>`,children:e.jsx(t,{title:"No history yet",message:"Requests you send will appear here.",compact:!0})}),e.jsx(o,{title:"Empty History (ClockIcon variant)",description:"With ClockIcon and accentColor to match GraphQL protocol",code:`<EmptyStateView
+  icon={<ClockIcon size={28} />}
+  title="No GraphQL history"
+  message="Run a query to see your request history."
+  accentColor="var(--color-protocol-graphql)"
+  action={{ label: 'Open Explorer', onClick: () => {} }}
+/>`,children:e.jsx(t,{icon:e.jsx(d,{size:28}),title:"No GraphQL history",message:"Run a query to see your request history.",accentColor:"var(--color-protocol-graphql)",action:{label:"Open Explorer",onClick:()=>{}}})}),e.jsx(o,{title:"External CTA via ButtonView",description:"Wrap EmptyStateView + ButtonView when you need a styled DUI button instead of the built-in action",code:`<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12 }}>
+  <EmptyStateView icon={<FolderIcon size={28} />} title="No mock routes" />
+  <ButtonView variant="primary" size="sm">+ Add Route</ButtonView>
+</div>`,children:e.jsxs("div",{style:{display:"flex",flexDirection:"column",alignItems:"center",gap:12},children:[e.jsx(t,{icon:e.jsx(a,{size:28}),title:"No mock routes",compact:!0}),e.jsx(p,{variant:"primary",size:"sm",children:"+ Add Route"})]})})]})}const b=Object.freeze(Object.defineProperty({__proto__:null,EmptyStateViewExamples:u},Symbol.toStringTag,{value:"Module"}));function y(){return e.jsxs("div",{style:{maxWidth:860},children:[e.jsx(i,{title:"Features",children:e.jsx(m,{features:[{label:"Optional icon slot",color:"var(--color-primary)"},{label:"Title + message text",color:"var(--color-success)"},{label:"Optional action button",color:"var(--color-info)"},{label:"Compact mode (reduced padding)",color:"var(--color-warning)"},{label:"Custom accent color for action button",color:"#a855f7"},{label:"Centered flex layout",color:"#ec4899"},{label:"Max-width 320px on message for readability",color:"#14b8a6"}]})}),e.jsx(i,{title:"Props",children:e.jsx(n,{props:[{name:"title",type:"string",required:!0,description:"Primary heading text. Shown at 13px (12px in compact mode)."},{name:"icon",type:"ReactNode",description:"Optional icon rendered above the title. Shown at 50% opacity using var(--color-emptystate-icon)."},{name:"message",type:"string",description:"Secondary descriptive text shown below the title. Max width 320px for readability."},{name:"action",type:"EmptyStateAction",description:"Optional call-to-action button. Rendered as a small tinted button using accentColor."},{name:"accentColor",type:"string",description:"Color override for the action button border, background tint, and text. Defaults to var(--color-primary)."},{name:"compact",type:"boolean",default:"false",description:"When true, reduces padding (20px vs 40px) and font sizes for use in dense panels or table cells."},{name:"className",type:"string",description:"Additional class names for the outer container div."}]})}),e.jsx(i,{title:"EmptyStateAction shape",children:e.jsx(n,{props:[{name:"label",type:"string",required:!0,description:"Button text."},{name:"onClick",type:"() => void",required:!0,description:"Called when the action button is clicked."}]})}),e.jsx(r,{type:"tip",children:"For a truly centered empty state inside a scrollable container, wrap the parent in h-full flex flex-col and make EmptyStateView fill the remaining space. Never use py-12 on the empty state itself — let the flex centering do the work."}),e.jsx(r,{type:"info",children:"EmptyStateView is used internally by DataTableView when the rows array is empty. Pass emptyTitle and emptyMessage to DataTableView to customize the message without rendering EmptyStateView directly."}),e.jsx(i,{title:"DUI Sizing & Theming",description:"EmptyStateView does not read size, width, color, or borderRadius from the DuiProvider context — it is not part of the sized-component system and has no size prop to fall back to a provider default.",children:e.jsxs(r,{type:"info",children:["EmptyStateView is unaffected by ",e.jsx("code",{children:"<DuiProvider>"})," size/color context. Style it directly via its own props (and CSS variables where documented above) rather than expecting provider-level sizing to apply."]})})]})}const f=Object.freeze(Object.defineProperty({__proto__:null,EmptyStateViewDocs:y},Symbol.toStringTag,{value:"Module"}));export{b as E,f as a};
