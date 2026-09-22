@@ -27,6 +27,10 @@ export default defineConfig({
             req.url = '/framework/convengine/index.html'
           } else if (/^\/framework\/convengine-chat\/?(\?.*)?$/.test(req.url)) {
             req.url = '/framework/convengine-chat/index.html'
+          } else if (/^\/framework\/convengine-chat\/(fullscreen|audit)(\?.*)?$/.test(req.url)) {
+            // The demo's sub-pages open in a new tab as /fullscreen?… and /audit?…;
+            // GitHub Pages resolves those to the .html file, sirv doesn't.
+            req.url = req.url.replace(/^(\/framework\/convengine-chat\/(?:fullscreen|audit))/, '$1.html')
           } else if (/^\/framework\/ck8t\/?(\?.*)?$/.test(req.url)) {
             req.url = '/framework/ck8t/index.html'
           } else if (/^\/framework\/dui\/?(\?.*)?$/.test(req.url)) {
